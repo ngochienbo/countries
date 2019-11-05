@@ -29,6 +29,7 @@ Main page - Card
 
 .cards {
   padding: 10em 0;
+  background: hsl(0, 0%, 98%);
 }
 
 .card {
@@ -37,6 +38,7 @@ Main page - Card
   margin: 0 auto;
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: 0 2px 5px 2px hsla(0, 0%, 0%, 0.05);
 }
 
 .flag {
@@ -51,14 +53,119 @@ Main page - Card
 }
 
 .name {
+  margin-bottom: 1em;
   font-size: 1.3em;
   font-weight: 800;
 }
 
 .card p {
   margin: 0 0 0.3em 0;
+  font-weight: 600;
 }
 
 .card span {
   font-weight: 300;
+}
+
+/*********************************
+Detail View
+*********************************/
+
+/* Activated when a country card is clicked */
+
+.card.detail-on {
+  padding: 1.5em;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.card.detail-on .detail {
+  display: initial;
+}
+
+.card.detail-on .flag {
+  height: auto;
+  max-width: 500px;
+}
+
+.card.detail-on .info {
+  padding-top: 2.5em;
+  margin-left: 0;
+  line-height: 1.9em;
+}
+
+.card.detail-on .stats {
+  margin-bottom: 2.5em;
+}
+
+.card.detail-on .stats > div:nth-child(5) {
+  margin-bottom: 2.5em;
+}
+
+.card.detail-on .border-countries > span {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.card.detail-on .countries {
+  margin-top: 1.1em;
+}
+
+.card.detail-on .country {
+  margin-right: 0.3em;
+  padding: 0.5em 1.5em;
+  min-width: 8em;
+  border: none;
+  border-radius: 2px;
+  font-size: 0.9em;
+  background: #fff;
+  box-shadow: 0 2px 5px 2px hsla(0, 0%, 0%, 0.05);
+}
+
+@media (min-width: 1440px) {
+  .card.detail-on {
+    display: flex;
+    padding: 0 3em 0 6em;
+    max-width: 1440px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card.detail-on .flag {
+    width: 45%;
+    height: auto;
+    max-width: none;
+  }
+
+  .card.detail-on .info {
+    padding-top: 0;
+    width: 45%;
+  }
+
+  .card.detail-on .name {
+    font-size: 2em;
+  }
+
+  .card.detail-on .stats {
+    display: flex;
+    height: 12em;
+    flex-flow: column wrap;
+    align-content: start;
+  }
+
+  .card.detail-on .stats > div {
+    width: 50%;
+  }
+
+  .card.detail-on .stats > div:nth-child(5) {
+    margin-bottom: 0;
+  }
+
+  .card.detail-on .countries {
+    display: inline-block;
+    margin-left: 1em;
+  }
 }
