@@ -6,21 +6,27 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,600,800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ae6f29466c.js" crossorigin="anonymous"></script>
+  
   <title>REST COUNTRIES API</title>
 </head>
 <body>
   <div class="page-wrapper">
     <div class="main">
       <nav class="navbar">
-        <h1 class="navbar-title">
+        <p class="navbar-title">
             Where in the world?
-        </h1>
-        <button class="dark-switch">
+        </p>
+        <p class="dark-button">
+          <i class="far fa-moon"></i>
           Dark Mode
-        </button>
+        </p>
       </nav>
       <div class="searchbar">
-        <input type="search" name="search" id="" placeholder="Search for a country...">
+        <div class="sample">
+          <input type="search" name="search" id="" placeholder="Search for a country...">
+          <i class="fas fa-search"></i>
+        </div>
         <select name="filter" id="">
           <option value="" disabled selected>Filter by Region</option>
           <option value="africa">Africa</option>
