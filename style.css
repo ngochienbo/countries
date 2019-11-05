@@ -125,3 +125,47 @@ Detail View
   box-shadow: 0 2px 5px 2px hsla(0, 0%, 0%, 0.05);
 }
 
+@media (min-width: 1440px) {
+  .card.detail-on {
+    display: flex;
+    padding: 0 3em 0 6em;
+    max-width: 1440px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card.detail-on .flag {
+    width: 45%;
+    height: auto;
+    max-width: none;
+  }
+
+  .card.detail-on .info {
+    padding-top: 0;
+    width: 45%;
+  }
+
+  .card.detail-on .name {
+    font-size: 2em;
+  }
+
+  .card.detail-on .stats {
+    display: flex;
+    height: 12em;
+    flex-flow: column wrap;
+    align-content: start;
+  }
+
+  .card.detail-on .stats > div {
+    width: 50%;
+  }
+
+  .card.detail-on .stats > div:nth-child(5) {
+    margin-bottom: 0;
+  }
+
+  .card.detail-on .countries {
+    display: inline-block;
+    margin-left: 1em;
+  }
+}
