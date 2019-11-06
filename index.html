@@ -14,30 +14,505 @@
   <div class="page-wrapper">
     <div class="main">
       <nav class="navbar">
-        <p class="navbar-title">
-            Where in the world?
-        </p>
-        <p class="dark-button">
-          <i class="far fa-moon"></i>
-          Dark Mode
-        </p>
+        <div>
+          <p class="navbar-title">
+              Where in the world?
+          </p>
+          <p class="navbar-button">
+            <i class="far fa-moon"></i>
+            Dark Mode
+          </p>
+        </div>
       </nav>
       <div class="searchbar">
-        <div class="sample">
+        <div class="search">
           <input type="search" name="search" id="" placeholder="Search for a country...">
           <i class="fas fa-search"></i>
         </div>
-        <select name="filter" id="">
+        <!-- <select name="filter" id="">
           <option value="" disabled selected>Filter by Region</option>
           <option value="africa">Africa</option>
           <option value="america">America</option>
           <option value="asia">Asia</option>
           <option value="europe">Europe</option>
           <option value="ocenia">Ocenia</option>
-        </select>
+        </select> -->
+        <div class="dropdown-menu">
+            <input type="text" disabled placeholder="Filter by Region">
+            <i class="fas fa-angle-down"></i>
+            <div class="dropdown-menu-options">
+              <p class="dropdown-menu-option">Africa</p>
+              <p class="dropdown-menu-option">America</p>
+              <p class="dropdown-menu-option">Asia</p>
+              <p class="dropdown-menu-option">Europe</p>
+              <p class="dropdown-menu-option">Ocenia</p>
+            </div>
+        </div>
       </div>
       <div class="cards">
-        <section class="card detail-on">
+        <section class="card"> <!-- detail-on -->
+          <img class="flag" src="https://restcountries.eu/data/deu.svg">
+          <div class="info">
+            <header class="name">
+              Germany
+            </header>
+            <div class="stats">
+              <div class="native-name detail">
+                <p>
+                  Native Name:
+                  <span>Belgie</span>
+                </p>
+              </div>
+              <div class="pop">
+                <p>
+                  Population:
+                  <span>81,770,900</span>
+                </p>
+              </div>
+              <div class="reg">
+                <p>
+                  Region:
+                  <span>Europe</span>
+                </p>
+              </div>
+              <div class="sub-reg detail">
+                <p>
+                  Sub Region:
+                  <span>Western Europe</span>
+                </p>
+              </div>
+              <div class="cap">
+                <p>
+                  Capital:
+                  <span>Berlin</span>
+                </p>
+              </div>
+              <div class="dom detail">
+                <p>
+                  Top Level  Domain:
+                  <span>.be</span>
+                </p>
+              </div>
+              <div class="cur detail">
+                <p>
+                  Currencies:
+                  <span>Euro</span>
+                </p>
+              </div>
+              <div class="lan detail">
+                <p>
+                  Languages:
+                  <span>Dutch, French, German</span>
+                </p>
+              </div>
+            </div>
+            <div class="border-countries detail">
+              <span>Border Countries:</span>
+              <div class="countries">
+                <button class="country">France</button>
+                <button class="country">Germany</button>
+                <button class="country">Netherlands</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <img class="flag" src="https://restcountries.eu/data/deu.svg">
+          <div class="info">
+            <header class="name">
+              Germany
+            </header>
+            <div class="stats">
+              <div class="native-name detail">
+                <p>
+                  Native Name:
+                  <span>Belgie</span>
+                </p>
+              </div>
+              <div class="pop">
+                <p>
+                  Population:
+                  <span>81,770,900</span>
+                </p>
+              </div>
+              <div class="reg">
+                <p>
+                  Region:
+                  <span>Europe</span>
+                </p>
+              </div>
+              <div class="sub-reg detail">
+                <p>
+                  Sub Region:
+                  <span>Western Europe</span>
+                </p>
+              </div>
+              <div class="cap">
+                <p>
+                  Capital:
+                  <span>Berlin</span>
+                </p>
+              </div>
+              <div class="dom detail">
+                <p>
+                  Top Level  Domain:
+                  <span>.be</span>
+                </p>
+              </div>
+              <div class="cur detail">
+                <p>
+                  Currencies:
+                  <span>Euro</span>
+                </p>
+              </div>
+              <div class="lan detail">
+                <p>
+                  Languages:
+                  <span>Dutch, French, German</span>
+                </p>
+              </div>
+            </div>
+            <div class="border-countries detail">
+              <span>Border Countries:</span>
+              <div class="countries">
+                <button class="country">France</button>
+                <button class="country">Germany</button>
+                <button class="country">Netherlands</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <img class="flag" src="https://restcountries.eu/data/deu.svg">
+          <div class="info">
+            <header class="name">
+              Germany
+            </header>
+            <div class="stats">
+              <div class="native-name detail">
+                <p>
+                  Native Name:
+                  <span>Belgie</span>
+                </p>
+              </div>
+              <div class="pop">
+                <p>
+                  Population:
+                  <span>81,770,900</span>
+                </p>
+              </div>
+              <div class="reg">
+                <p>
+                  Region:
+                  <span>Europe</span>
+                </p>
+              </div>
+              <div class="sub-reg detail">
+                <p>
+                  Sub Region:
+                  <span>Western Europe</span>
+                </p>
+              </div>
+              <div class="cap">
+                <p>
+                  Capital:
+                  <span>Berlin</span>
+                </p>
+              </div>
+              <div class="dom detail">
+                <p>
+                  Top Level  Domain:
+                  <span>.be</span>
+                </p>
+              </div>
+              <div class="cur detail">
+                <p>
+                  Currencies:
+                  <span>Euro</span>
+                </p>
+              </div>
+              <div class="lan detail">
+                <p>
+                  Languages:
+                  <span>Dutch, French, German</span>
+                </p>
+              </div>
+            </div>
+            <div class="border-countries detail">
+              <span>Border Countries:</span>
+              <div class="countries">
+                <button class="country">France</button>
+                <button class="country">Germany</button>
+                <button class="country">Netherlands</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <img class="flag" src="https://restcountries.eu/data/deu.svg">
+          <div class="info">
+            <header class="name">
+              Germany
+            </header>
+            <div class="stats">
+              <div class="native-name detail">
+                <p>
+                  Native Name:
+                  <span>Belgie</span>
+                </p>
+              </div>
+              <div class="pop">
+                <p>
+                  Population:
+                  <span>81,770,900</span>
+                </p>
+              </div>
+              <div class="reg">
+                <p>
+                  Region:
+                  <span>Europe</span>
+                </p>
+              </div>
+              <div class="sub-reg detail">
+                <p>
+                  Sub Region:
+                  <span>Western Europe</span>
+                </p>
+              </div>
+              <div class="cap">
+                <p>
+                  Capital:
+                  <span>Berlin</span>
+                </p>
+              </div>
+              <div class="dom detail">
+                <p>
+                  Top Level  Domain:
+                  <span>.be</span>
+                </p>
+              </div>
+              <div class="cur detail">
+                <p>
+                  Currencies:
+                  <span>Euro</span>
+                </p>
+              </div>
+              <div class="lan detail">
+                <p>
+                  Languages:
+                  <span>Dutch, French, German</span>
+                </p>
+              </div>
+            </div>
+            <div class="border-countries detail">
+              <span>Border Countries:</span>
+              <div class="countries">
+                <button class="country">France</button>
+                <button class="country">Germany</button>
+                <button class="country">Netherlands</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <img class="flag" src="https://restcountries.eu/data/deu.svg">
+          <div class="info">
+            <header class="name">
+              Germany
+            </header>
+            <div class="stats">
+              <div class="native-name detail">
+                <p>
+                  Native Name:
+                  <span>Belgie</span>
+                </p>
+              </div>
+              <div class="pop">
+                <p>
+                  Population:
+                  <span>81,770,900</span>
+                </p>
+              </div>
+              <div class="reg">
+                <p>
+                  Region:
+                  <span>Europe</span>
+                </p>
+              </div>
+              <div class="sub-reg detail">
+                <p>
+                  Sub Region:
+                  <span>Western Europe</span>
+                </p>
+              </div>
+              <div class="cap">
+                <p>
+                  Capital:
+                  <span>Berlin</span>
+                </p>
+              </div>
+              <div class="dom detail">
+                <p>
+                  Top Level  Domain:
+                  <span>.be</span>
+                </p>
+              </div>
+              <div class="cur detail">
+                <p>
+                  Currencies:
+                  <span>Euro</span>
+                </p>
+              </div>
+              <div class="lan detail">
+                <p>
+                  Languages:
+                  <span>Dutch, French, German</span>
+                </p>
+              </div>
+            </div>
+            <div class="border-countries detail">
+              <span>Border Countries:</span>
+              <div class="countries">
+                <button class="country">France</button>
+                <button class="country">Germany</button>
+                <button class="country">Netherlands</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <img class="flag" src="https://restcountries.eu/data/deu.svg">
+          <div class="info">
+            <header class="name">
+              Germany
+            </header>
+            <div class="stats">
+              <div class="native-name detail">
+                <p>
+                  Native Name:
+                  <span>Belgie</span>
+                </p>
+              </div>
+              <div class="pop">
+                <p>
+                  Population:
+                  <span>81,770,900</span>
+                </p>
+              </div>
+              <div class="reg">
+                <p>
+                  Region:
+                  <span>Europe</span>
+                </p>
+              </div>
+              <div class="sub-reg detail">
+                <p>
+                  Sub Region:
+                  <span>Western Europe</span>
+                </p>
+              </div>
+              <div class="cap">
+                <p>
+                  Capital:
+                  <span>Berlin</span>
+                </p>
+              </div>
+              <div class="dom detail">
+                <p>
+                  Top Level  Domain:
+                  <span>.be</span>
+                </p>
+              </div>
+              <div class="cur detail">
+                <p>
+                  Currencies:
+                  <span>Euro</span>
+                </p>
+              </div>
+              <div class="lan detail">
+                <p>
+                  Languages:
+                  <span>Dutch, French, German</span>
+                </p>
+              </div>
+            </div>
+            <div class="border-countries detail">
+              <span>Border Countries:</span>
+              <div class="countries">
+                <button class="country">France</button>
+                <button class="country">Germany</button>
+                <button class="country">Netherlands</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <img class="flag" src="https://restcountries.eu/data/deu.svg">
+          <div class="info">
+            <header class="name">
+              Germany
+            </header>
+            <div class="stats">
+              <div class="native-name detail">
+                <p>
+                  Native Name:
+                  <span>Belgie</span>
+                </p>
+              </div>
+              <div class="pop">
+                <p>
+                  Population:
+                  <span>81,770,900</span>
+                </p>
+              </div>
+              <div class="reg">
+                <p>
+                  Region:
+                  <span>Europe</span>
+                </p>
+              </div>
+              <div class="sub-reg detail">
+                <p>
+                  Sub Region:
+                  <span>Western Europe</span>
+                </p>
+              </div>
+              <div class="cap">
+                <p>
+                  Capital:
+                  <span>Berlin</span>
+                </p>
+              </div>
+              <div class="dom detail">
+                <p>
+                  Top Level  Domain:
+                  <span>.be</span>
+                </p>
+              </div>
+              <div class="cur detail">
+                <p>
+                  Currencies:
+                  <span>Euro</span>
+                </p>
+              </div>
+              <div class="lan detail">
+                <p>
+                  Languages:
+                  <span>Dutch, French, German</span>
+                </p>
+              </div>
+            </div>
+            <div class="border-countries detail">
+              <span>Border Countries:</span>
+              <div class="countries">
+                <button class="country">France</button>
+                <button class="country">Germany</button>
+                <button class="country">Netherlands</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="card">
           <img class="flag" src="https://restcountries.eu/data/deu.svg">
           <div class="info">
             <header class="name">
