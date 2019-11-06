@@ -253,4 +253,29 @@ window.addEventListener('load', function() {
   })
 
 
-})
+})// Toggle display for cards in the display area according to global filter settings
+const applyFilterToDisplay = () => {
+  const regions = Object.keys(currentFilters);
+  const cards = document.querySelectorAll('.cards > .card');
+
+  // Hide all the cards
+  cards.forEach(card => card.style.display = 'none');
+
+  // If at least one filter is on (true)
+  if (Object.values(currentFilters).includes(true)) {
+    // Loop through regions and for those that are true show cards for that region
+    regions.forEach(region => {
+      // Find all cards for this region
+      const regionCards = document.querySelectorAll(`.cards > [data-region="${region}"]`);
+
+      // If the display option for this region is on then show cards
+      if (currentFilters[region]) {
+        regionCards.forEach((card) => card.style.display = 'initial');
+      }
+    });
+  // Else no filters are on so display all the cards
+  } else {
+    cards.forEach(card => card.style.display = 'initial');
+  }
+}
+
