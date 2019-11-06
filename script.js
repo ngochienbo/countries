@@ -1,5 +1,5 @@
 /*
-D1. Function to clear currently displayed cards
+*D1. Function to clear currently displayed cards
   - Input: none
   - Deletes all existing cards
 *2. Function to fetch API data
@@ -14,10 +14,10 @@ N4. Function Apply filter to last search results
 N5. Function to render HTML cards
   - Input: parsed JSON data, limited only to desired fields
   - Return: Array of template string populated with data
-D6. Function to convert border country names
+*D6. Function to convert border country names
   - Input: Array of country codes
   - Return: Array of country names
-D7. Function to populate cards section with rendered cards
+*D7. Function to populate cards section with rendered cards
   - Input: array of template strings populated with data
 
 A. Control function
@@ -83,4 +83,29 @@ const fetchData = (searchStr) => {
   .catch((error) => {
     console.log(error);
   });
+}
+
+// Clear all present cards from the country card display section
+const clearDisplay = () => {
+  const display = document.querySelector('.cards');
+  display.innerHTML = '';
+}
+
+// Convert an array of country codes into full names
+const convertCountryCodes = (codes) => {
+  return codes.map((code) => countryCodes[code]);
+}
+
+// Populate the display section with rendered HTML cards
+const populateDisplay = (cardsStr) => {
+  const display = document.querySelector('.cards');
+  let combinedStr = '';
+
+  // Concatenate all the card strings together
+  cardsStr.forEach((cardStr) => {
+    combinedStr += cardStr;
+  });
+
+  // Insert the concatenated string into the display section
+  display.innerHTML += combinedStr;
 }
