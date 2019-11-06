@@ -50,7 +50,8 @@ C. Function to update global filter settings (on filter click)
 
 */
 
-const filterString = 'fields=name;nativeName;population;region;subregion;capital;topLevelDomain;currencies;languages;borders';
+// Global variables
+const filterString = '?fields=name;nativeName;population;region;subregion;capital;topLevelDomain;currencies;languages;borders';
 const APIRoot = "https://restcountries.eu/rest/v2/";
 const currentFilters = {
   Africa: false,
