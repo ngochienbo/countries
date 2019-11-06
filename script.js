@@ -55,13 +55,13 @@ const filterString = '?fields=name;nativeName;population;region;subregion;capita
 const APIRoot = "https://restcountries.eu/rest/v2/";
 const currentFilters = {
   Africa: false,
-  America: false,
+  Americas: false,
   Asia: false,
   Europe: false,
   Oceania: false
 };
 const countryCodes = {};
-let currentResults = {};
+let currentResults = [];
 
 
 const fetchData = (searchStr) => {
@@ -73,14 +73,15 @@ const fetchData = (searchStr) => {
     queryType = 'name/';
   }
   queryStr = APIRoot + queryType + searchStr + filterString;
-  fetch(queryStr)
-  .then((response) => {
+
+  return fetch(queryStr)
+  .then(response => {
     return response.json();
   })
-  .then((unparsed) => {
+  .then(unparsed => {
     return unparsed;
   })
-  .catch((error) => {
+  .catch(error => {
     console.log(error);
   });
 }
@@ -108,4 +109,112 @@ const populateDisplay = (cardsStr) => {
 
   // Insert the concatenated string into the display section
   display.innerHTML += combinedStr;
+}
+
+// Filter results based on filter options
+const filterData = () => {
+  let filterResults = [];
+  for (let i = 0; i < currentResults.length; i++) {
+    let currentCountry = currentResults[i];
+    let region = currentCountry.region;
+    if (currentFilters[region]) {
+      filterResults.push(currentCountry);
+    }
+  }
+  if (filterResults.length === 0) {
+    filterResults = currentResults.slice();
+  }
+  return filterResults;
+}
+
+
+
+//Create HTML templates for displaying results
+const renderHTML = (filterResults) => {
+  let templateArr = [];
+  for (let i = 0; i < filterResults.length; i++) {
+    let country = filterResults[i];
+    let currencies = country.currencies;
+    let languages = country.languages;
+    let currenciesStr = '';
+    let languagesStr = '';
+    let bordersArr =[];
+    let bordersStr ='';
+
+    // Map loops through the array (currencies, languages, borders),
+    // returns all items and join them into a string delimited by ', '
+
+    currenciesStr = currencies.map(curr => curr.name).join(', ');
+    languagesStr = languages.map(lang => lang.name).join(', ');
+    bordersArr = convertCountryCodes(country.borders);
+    bordersStr = bordersArr.map(border => {return `<button class="country">${border}</button>
+            `}).join('');
+
+    let template =`<section class="card">
+      <img class="flag" src="https://restcountries.eu/data/deu.svg">
+      <div class="info">
+        <header class="name">
+          ${filterResults[i].name}
+        </header>
+        <div class="stats">
+          <div class="native-name detail">
+            <p>
+              Native Name:
+              <span>${filterResults[i].nativeName}</span>
+            </p>
+          </div>
+          <div class="pop">
+            <p>
+              Population:
+              <span>${filterResults[i].population}</span>
+            </p>
+          </div>
+          <div class="reg">
+            <p>
+              Region:
+              <span>${filterResults[i].region}</span>
+            </p>
+          </div>
+          <div class="sub-reg detail">
+            <p>
+              Sub Region:
+              <span>${filterResults[i].subregion}</span>
+            </p>
+          </div>
+          <div class="cap">
+            <p>
+              Capital:
+              <span>${filterResults[i].capital}</span>
+            </p>
+          </div>
+          <div class="dom detail">
+            <p>
+              Top Level  Domain:
+              <span>${filterResults[i].topLevelDomain}</span>
+            </p>
+          </div>
+          <div class="cur detail">
+            <p>
+              Currencies:
+              <span>${currenciesStr}</span>
+            </p>
+          </div>
+          <div class="lan detail">
+            <p>
+              Languages:
+              <span>${languagesStr}</span>
+            </p>
+          </div>
+        </div>
+        <div class="border-countries detail">
+          <span>Border Countries:</span>
+          <div class="countries">
+            ${bordersStr}          </div>
+        </div>
+      </div>
+    </section>`
+
+    templateArr.push(template);
+  }
+  return templateArr;
 }
