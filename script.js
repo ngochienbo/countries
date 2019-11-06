@@ -61,4 +61,26 @@ const currentFilters = {
   Oceania: false
 };
 const countryCodes = {};
-var currentResults = {};
+let currentResults = {};
+
+
+const fetchData = (searchStr) => {
+  let queryType, queryStr;
+  if (searchStr === '' || searchStr === undefined) {
+    queryType = 'all';
+    searchStr = '';
+  } else {
+    queryType = 'name/';
+  }
+  queryStr = APIRoot + queryType + searchStr + filterString;
+  fetch(queryStr)
+  .then((response) => {
+    return response.json();
+  })
+  .then((unparsed) => {
+    return unparsed;
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+}
