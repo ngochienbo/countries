@@ -12,6 +12,8 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
+  background: hsl(0, 0%, 98%); /* Light mode background */
+  color: hsl(200, 15%, 8%); /* Light mode text */
 }
 
 .main {
@@ -23,20 +25,240 @@ body {
   display: none;
 }
 
+.details {
+  font-size: 16px;
+}
+
+.navbar,
+.searchbar input,
+.dropdown-menu-options,
+.card {
+  box-shadow: 0 0 8px 2px hsla(0, 0%, 0%, 0.05);
+}
+
 /*********************************
-Main page - Card
+Main page - Navbar
+*********************************/
+
+.navbar > div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  padding: 33px 4.5%;
+  background: #fff;
+}
+
+.navbar * {
+  margin: 0;
+}
+
+.navbar-title {
+  font-weight: 800;
+}
+
+.navbar-button {
+  font-size: 0.85em;
+  font-weight: 600;
+}
+
+.navbar i {
+  margin-right: 0.5em;
+}
+
+@media (min-width: 376px) {
+  .navbar {
+    width: 100%;
+  }
+
+  .navbar > div {
+    max-width: 1440px;
+    margin: auto;
+    padding: 0 5.5%;
+    display: flex;
+  }
+
+  .navbar-title {
+    font-size: 1.7em;
+    margin: auto 0;
+  }
+
+  .navbar-button {
+    font-size: 1.15em;
+    margin: auto 0;
+  }
+}
+
+/*********************************
+Main page - Searchbar
+*********************************/
+
+.searchbar {
+  width: 100%;
+  position: relative;
+  padding: 24px 4%;
+}
+
+.searchbar * {
+  border-radius: 5px;
+}
+
+.searchbar * {
+  display: block;
+}
+
+.searchbar input[type="search"] {
+  width: 100%;
+  height: 48px;
+  margin: 0 auto 40px;
+  padding-left: 6.5em;
+  font-size: 0.85em;
+  color: hsl(200, 15%, 8%);
+  outline: none;
+  border: none;
+}
+
+.searchbar input[type="search"]::placeholder {
+  font-family: 'Nunito Sans', sans-serif;
+  color: hsl(0, 0%, 72%);
+}
+
+/* Remove the x that shows when input present */
+.searchbar input[type="search"]::-webkit-search-decoration,
+.searchbar input[type="search"]::-webkit-search-cancel-button,
+.searchbar input[type="search"]::-webkit-search-results-button,
+.searchbar input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+
+.searchbar input[type="search"] + i {
+  position: absolute;
+  top: 2.9em;
+  left: 3.5em;
+  color: hsl(0, 0%, 72%);
+}
+
+.dropdown-menu {
+  width: 54%;
+  position: absolute;
+}
+
+.searchbar input[type="text"] {
+  width: 100%;
+  height: 48px;
+  position: absolute;
+  margin-bottom: 5px;
+}
+
+.searchbar input[type="text"]:disabled {
+  padding-left: 24px;
+  border: none;
+  background: #fff;
+  
+  font-size: 0.85em;
+}
+
+.searchbar input[type="text"] + i {
+  position: absolute;
+  top: 20px;
+  right: 10%;
+  font-size: 0.85em;
+}
+
+.dropdown-menu-options {
+  width: 100%;
+  position: relative;
+  top: 53px;
+  padding: 1em 0 1em 24px;
+  background: #fff;
+}
+
+.dropdown-menu-option {
+  margin: 0 0 0.5em;
+  font-size: 0.9em;
+}
+
+.dropdown-menu-option:hover {
+  display: inline-block;
+  width: calc(100% + 24px);
+  position: relative;
+  left: -24px;
+  padding-left: 24px;
+  background: hsl(0, 0%, 95%);
+}
+
+.dropdown-menu-options p:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 376px) {
+  .searchbar {
+    max-width: 1440px;
+    margin: auto;
+    padding: 3.5em 5.5% 0.5em;
+  }
+
+  .search {
+    display: inline-block;
+    width: 480px;
+    margin: 0 2em 0 0;
+  }
+
+  .main div.searchbar input {
+    height: 56px;
+  }
+
+  .searchbar input[type="search"] {
+    padding-left: 5em;
+    font-size: 1em;
+  }
+
+  .searchbar input[type="search"] +i {
+    top: 4em;
+    left: 6.5em;
+    font-size: 1.2em;
+  }
+
+  .dropdown-menu {
+    width: 200px;
+    top: 3.5em;
+    right: 5.5%;
+  }
+
+  .searchbar input[type="text"],
+  .dropdown-menu-options {
+    width: 100%;
+  }
+
+  .searchbar input[type="text"]::placeholder {
+    font-size: 1.1em;
+  }
+
+  .searchbar input[type="text"] +i {
+    right: 1.5em;
+    font-size: 1em;
+  }
+
+  .dropdown-menu-options {
+    top: 60px;
+    font-size: 1.1em;
+  }  
+}
+
+/*********************************
+Main page - Card section 
 *********************************/
 
 .cards {
   padding: 10em 0;
   background: hsl(0, 0%, 98%);
+  padding: 4em 0;
 }
 
 .card {
   width: 265px;
   height: 340px;
   margin: 0 auto;
-  border-radius: 8px;
+  border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 2px 5px 2px hsla(0, 0%, 0%, 0.05);
 }
@@ -65,6 +287,21 @@ Main page - Card
 
 .card span {
   font-weight: 300;
+}
+
+@media (min-width: 376px) {
+  .cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1440px;
+    margin: auto;
+    padding: 0 5.5%;
+  }
+
+  .card {
+    margin: 0 0 5em 0;
+  }
 }
 
 /*********************************
@@ -125,7 +362,7 @@ Detail View
   box-shadow: 0 2px 5px 2px hsla(0, 0%, 0%, 0.05);
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 376px) {
   .card.detail-on {
     display: flex;
     padding: 0 3em 0 6em;
@@ -169,3 +406,43 @@ Detail View
     margin-left: 1em;
   }
 }
+
+/*********************************
+Detail page
+*********************************/
+/* 
+html {
+  
+}
+
+.card.fullscreen {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 80px;
+  padding: 2em 0;
+  border-radius: initial;
+  background: hsl(0, 0%, 98%);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.card.fullscreen .flag {
+  display: block;
+  width: 85%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.card.fullscreen .info {
+  padding: 3em 0;
+  margin-left: 7.5%;
+}
+
+.card.fullscreen .detail {
+  display: initial;
+}
+
+.card.fullscreen .name {
+  font-size: 1.5em;
+} */
