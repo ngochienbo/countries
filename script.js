@@ -234,3 +234,23 @@ const renderHTML = (filterResults) => {
   }
   return templateArr;
 }
+
+/*********************************************
+ * On Load
+ */
+
+window.addEventListener('load', function() {
+
+  // Fetch data for all countries then populate countryCodes
+  fetchData()
+  .then(countries => {
+    countries.forEach(count => countryCodes[count.alpha3Code] = count.name);
+    let randomNum = 8;
+    for (let i = 0; i < randomNum; i++) {
+      currentResults.push(countries[Math.round(Math.random() * 250)]);
+    }
+    populateDisplay(renderHTML(currentResults));
+  })
+
+
+})
