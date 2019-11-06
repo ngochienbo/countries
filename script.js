@@ -146,10 +146,10 @@ const filterData = () => {
 
 
 //Create HTML templates for displaying results
-const renderHTML = (filterResults) => {
+const renderHTML = (results) => {
   let templateArr = [];
-  for (let i = 0; i < filterResults.length; i++) {
-    let country = filterResults[i];
+  for (let i = 0; i < results.length; i++) {
+    let country = results[i];
     let currencies = country.currencies;
     let languages = country.languages;
     let currenciesStr = '';
@@ -166,47 +166,47 @@ const renderHTML = (filterResults) => {
     bordersStr = bordersArr.map(border => {return `<button class="country">${border}</button>
             `}).join('');
 
-    let template =`<section class="card">
-      <img class="flag" src="https://restcountries.eu/data/deu.svg">
+    let template =`<section class="card" data-region="${results[i].region}">
+      <img class="flag" src="${results[i].flag}">
       <div class="info">
         <header class="name">
-          ${filterResults[i].name}
+          ${results[i].name}
         </header>
         <div class="stats">
           <div class="native-name detail">
             <p>
               Native Name:
-              <span>${filterResults[i].nativeName}</span>
+              <span>${results[i].nativeName}</span>
             </p>
           </div>
           <div class="pop">
             <p>
               Population:
-              <span>${filterResults[i].population}</span>
+              <span>${results[i].population}</span>
             </p>
           </div>
           <div class="reg">
             <p>
               Region:
-              <span>${filterResults[i].region}</span>
+              <span>${results[i].region}</span>
             </p>
           </div>
           <div class="sub-reg detail">
             <p>
               Sub Region:
-              <span>${filterResults[i].subregion}</span>
+              <span>${results[i].subregion}</span>
             </p>
           </div>
           <div class="cap">
             <p>
               Capital:
-              <span>${filterResults[i].capital}</span>
+              <span>${results[i].capital}</span>
             </p>
           </div>
           <div class="dom detail">
             <p>
               Top Level  Domain:
-              <span>${filterResults[i].topLevelDomain}</span>
+              <span>${results[i].topLevelDomain}</span>
             </p>
           </div>
           <div class="cur detail">
