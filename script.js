@@ -1,22 +1,23 @@
 /*
-1. Function to clear currently displayed cards
+D1. Function to clear currently displayed cards
   - Input: none
   - Deletes all existing cards
-2. Function to fetch API data
+*2. Function to fetch API data
   - Input: search string
   - Return: parsed JSON data, limited only to desired fields
-3. Function to parse API data
+NOT NEEDED 3. Function to parse API data
   - Input: unparsed API data, array of desired fields
+  - If desired fields empty, return all
   - Return: parsed JSON data, limited only to desired fields
-4. Function Apply filter to last search results
+N4. Function Apply filter to last search results
   - Return: new parsed JSON data object
-5. Function to render HTML cards
+N5. Function to render HTML cards
   - Input: parsed JSON data, limited only to desired fields
-  - Return: template string populated with data
-  a. Function to convert border country names
-    - Input: Array of country codes
-    - Return: Array of country names
-6. Function to populate cards section with rendered cards
+  - Return: Array of template string populated with data
+D6. Function to convert border country names
+  - Input: Array of country codes
+  - Return: Array of country names
+D7. Function to populate cards section with rendered cards
   - Input: array of template strings populated with data
 
 A. Control function
