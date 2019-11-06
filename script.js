@@ -47,6 +47,22 @@ C. Function to update global filter settings (on filter click)
   - Call control function to rerender section
   - Toggle highlight
 
+D. Back button handler
+  - Implements a stack to keep track of navigation history (choosing a country from
+    selection screen, or clicking through border countries)
+  - For clicks originating from the selection screen, the selected card gets
+    toggled history-main class in addition to detail-on
+  - For clicks originating from detail view (clicks on border countries) a new query
+    is run and a new HTML card created with class detail-on and a data-history attribute
+    which increments with the size of the stack.
+  - For each subsequent navigation, the previous detail-on card is hidden.
+  - The stack keeps track of which item was of the first type and which item was of the
+    second type, so that when it's popped it will treat the detail-on cards differently
+  - When popping the stack, the cards with data-history will be deleted and the previous
+    one will be redisplayed. If instead the card with class history-main is popped,
+    it will only have detail-on toggled off and other small hidden cards display restored
+    to initial.
+
 
 */
 
