@@ -208,7 +208,9 @@ Main page - Searchbar
   }
 
   .searchbar input[type="search"] {
+    max-width: 500px;
     padding-left: 5em;
+    margin-left: 0;
     font-size: 1em;
   }
 
