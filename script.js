@@ -67,7 +67,7 @@ D. Back button handler
 */
 
 // Global variables
-const filterString = '?fields=name;nativeName;population;region;subregion;capital;topLevelDomain;currencies;languages;borders;alpha3Code';
+const filterString = '?fields=name;nativeName;population;region;subregion;capital;topLevelDomain;currencies;languages;borders;alpha3Code;flag';
 const APIRoot = "https://restcountries.eu/rest/v2/";
 const currentFilters = {
   Africa: false,
