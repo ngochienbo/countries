@@ -228,10 +228,25 @@ window.addEventListener('load', function() {
       currentResults.push(countries[Math.round(Math.random() * 250)]);
     }
     populateDisplay(renderHTML(currentResults));
+
+    document.querySelector('.cards').addEventListener('click', displayNextBorderCountry);
   })
 
 
 })
+
+const displayNextBorderCountry = (borderCountry) => {
+  let target = borderCountry.target;
+  if (target.matches('button.country')) {
+    let searchStr = target.innerHTML;
+    fetchData(searchStr, 'full')
+    .then(country => {
+      populateDisplay(renderHTML(country));
+      document.querySelector('.cards').lastChild.classList.add('detail-on');
+      console.log(document.querySelector('.cards').lastChild);
+    })
+  }
+}
 
 // Toggle display for cards in the display area according to global filter settings
 const applyFilterToDisplay = () => {
