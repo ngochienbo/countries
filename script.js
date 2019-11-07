@@ -306,3 +306,19 @@ document.querySelector('.dropdown-menu-options').addEventListener('click', funct
   }
   applyFilterToDisplay();
 })
+
+//Search function
+document.addEventListener('keypress', function(e) {
+  let searchbar = document.querySelector('[name="search"]');
+  let searchStr = '';
+  if (e.keyCode === 13 && document.activeElement === searchbar) {
+    searchStr = searchbar.value;
+    clearDisplay();
+    fetchData(searchStr)
+    .then(countries => {
+      currentResults = countries;
+      populateDisplay(renderHTML(currentResults));
+      applyFilterToDisplay();
+    })
+  }
+})
