@@ -75,6 +75,30 @@ const currentFilters = {
 };
 const countryCodes = {};
 let currentResults = [];
+const historyStack = (() => {
+  let index;
+  return {
+    push: () => {
+      if (index === undefined) {
+        index = 0;
+      } else {
+        index += 1;
+      }
+      return index;
+    },
+    pop: () => {
+      if (index === 0) {
+        index = undefined;
+        return 0;
+      } else if (index === undefined) {
+        return undefined;
+      } else {
+        index -= 1;
+        return index + 1;
+      }
+    }
+  }
+})();
 
 const fetchData = (searchStr, searchType) => {
   let queryType, queryStr, fullNameFilter = '';
