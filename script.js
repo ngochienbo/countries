@@ -259,6 +259,26 @@ const applyFilterToDisplay = () => {
   }
 }
 
+// Toggle detail view for selected card, while hiding all others
+const toggleDetailView = (card) => {
+  card.classList.toggle('detail-on');
+
+  // Find all other cards and turn their display off
+  let otherCards = document.querySelectorAll('.card:not(.detail-on)');
+  console.log(otherCards);
+  otherCards.forEach(otherCard => otherCard.style.display = 'none');
+
+}
+
+document.querySelector('.cards').addEventListener('click', function(e) {
+  let target = e.target;
+  if (target.matches('.flag')) {
+    let card = target.closest('.card');
+    toggleDetailView(card);
+    // console.log(card);
+  }
+});
+
 
 //Toggle filter dropdown menu
 document.addEventListener('click', function(e) {
