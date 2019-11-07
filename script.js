@@ -76,7 +76,6 @@ const currentFilters = {
 const countryCodes = {};
 let currentResults = [];
 
-
 const fetchData = (searchStr) => {
   let queryType, queryStr;
   if (searchStr === '' || searchStr === undefined) {
@@ -232,7 +231,9 @@ window.addEventListener('load', function() {
   })
 
 
-})// Toggle display for cards in the display area according to global filter settings
+})
+
+// Toggle display for cards in the display area according to global filter settings
 const applyFilterToDisplay = () => {
   const regions = Object.keys(currentFilters);
   const cards = document.querySelectorAll('.cards > .card');
