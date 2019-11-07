@@ -267,12 +267,12 @@ const applyFilterToDisplay = () => {
 
       // If the display option for this region is on then show cards
       if (currentFilters[region]) {
-        regionCards.forEach((card) => card.style.display = 'initial');
+        regionCards.forEach((card) => card.style.display = 'block');
       }
     });
   // Else no filters are on so display all the cards
   } else {
-    cards.forEach(card => card.style.display = 'initial');
+    cards.forEach(card => card.style.display = 'block'); //Setting display to initial causes buggy behavior
   }
 }
 
