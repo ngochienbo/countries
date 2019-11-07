@@ -240,13 +240,16 @@ window.addEventListener('load', function() {
 
 const displayNextBorderCountry = (borderCountry) => {
   let target = borderCountry.target;
+  let newCard = document.querySelector('.cards').lastChild;
   if (target.matches('button.country')) {
     let searchStr = target.innerHTML;
     fetchData(searchStr, 'full')
     .then(country => {
       populateDisplay(renderHTML(country));
-      document.querySelector('.cards').lastChild.classList.add('detail-on');
-      console.log(document.querySelector('.cards').lastChild);
+      newCard.classList.add('detail-on');
+      let index = historyStack.push();
+      newCard.dataset.history =  index;
+      document.querySelector(`.card[data-history="${index - 1}"]`).style.display = 'none';
     })
   }
 }
