@@ -276,3 +276,18 @@ const applyFilterToDisplay = () => {
   }
 }
 
+
+//Toggle filter dropdown menu
+document.addEventListener('click', function(e) {
+  let target = e.target;
+  if (target.matches('.dropdown-menu input, .dropdown-menu i')) {
+    document.querySelector('.dropdown-menu').classList.toggle('show-filters');
+  } else if (target.matches('.dropdown-menu-options, .dropdown-menu-options *')) {
+    //do nothing
+  } else {
+    document.querySelector('.dropdown-menu').classList.remove('show-filters');
+  }
+  console.log(e.target);
+})
+
+
