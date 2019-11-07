@@ -76,13 +76,16 @@ const currentFilters = {
 const countryCodes = {};
 let currentResults = [];
 
-const fetchData = (searchStr) => {
+const fetchData = (searchStr, searchType) => {
   let queryType, queryStr;
-  if (searchStr === '' || searchStr === undefined) {
+  if (searchType === 'partial') {
+    queryType = 'name/';
+  } else if (searchType === 'full') {
+    queryType = `name/${searchStr}?fullText=true`;
+    searchStr = '';
+  } else if (searchStr === '' || searchStr === undefined) {
     queryType = 'all';
     searchStr = '';
-  } else {
-    queryType = 'name/';
   }
   queryStr = APIRoot + queryType + searchStr + filterString;
 
