@@ -334,7 +334,7 @@ document.addEventListener('keypress', function(e) {
   if (e.keyCode === 13 && document.activeElement === searchbar) {
     searchStr = searchbar.value;
     clearDisplay();
-    fetchData(searchStr)
+    fetchData(searchStr, 'partial')
     .then(countries => {
       currentResults = countries;
       populateDisplay(renderHTML(currentResults));
