@@ -165,6 +165,11 @@ Main page - Searchbar
 }
 
 .dropdown-menu-options {
+  display: none;
+}
+
+.show-filters .dropdown-menu-options {
+  display: inline-block;
   width: 100%;
   position: relative;
   top: 53px;
@@ -172,18 +177,35 @@ Main page - Searchbar
   background: #fff;
 }
 
-.dropdown-menu-option {
-  margin: 0 0 0.5em;
-  font-size: 0.9em;
-}
-
-.dropdown-menu-option:hover {
+.dropdown-menu-options > p {
   display: inline-block;
   width: calc(100% + 24px);
   position: relative;
   left: -24px;
   padding-left: 24px;
-  background: hsl(0, 0%, 95%);
+  background: initial;
+  margin: 0 0 0.5em;
+  font-size: 0.9em;
+}
+
+.dropdown-menu-options > p.filter-on {
+  display: inline-block;
+  width: calc(100% + 24px);
+  position: relative;
+  left: -24px;
+  padding-left: 24px;
+  border-radius: 0;
+  background: hsl(0, 0%, 80%);
+}
+
+.dropdown-menu-options > p:hover {
+  display: inline-block;
+  width: calc(100% + 24px);
+  position: relative;
+  left: -24px;
+  padding-left: 24px;
+  border-radius: 0;
+  background: hsl(0, 0%, 80%);
 }
 
 .dropdown-menu-options p:last-child {
@@ -241,6 +263,11 @@ Main page - Searchbar
   }
 
   .dropdown-menu-options {
+    display: none;
+  }
+
+  .show-filters .dropdown-menu-options {
+    display: inline-block;
     top: 60px;
     font-size: 1.1em;
   }  
