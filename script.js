@@ -291,3 +291,18 @@ document.addEventListener('click', function(e) {
 })
 
 
+//Select filter options
+document.querySelector('.dropdown-menu-options').addEventListener('click', function(e) {
+  let targetFilter = e.target;
+  let region = targetFilter.dataset.region;
+  console.log(targetFilter);
+  if (region) {
+    targetFilter.classList.toggle('filter-on');
+    if (targetFilter.classList.contains('filter-on')) {
+      currentFilters[region] = true;
+    } else {
+      currentFilters[region] = false;
+    }
+  }
+  applyFilterToDisplay();
+})
