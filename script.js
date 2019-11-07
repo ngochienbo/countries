@@ -124,24 +124,6 @@ const populateDisplay = (cardsStr) => {
   display.innerHTML += combinedStr;
 }
 
-// Filter results based on filter options
-const filterData = () => {
-  let filterResults = [];
-  for (let i = 0; i < currentResults.length; i++) {
-    let currentCountry = currentResults[i];
-    let region = currentCountry.region;
-    if (currentFilters[region]) {
-      filterResults.push(currentCountry);
-    }
-  }
-  if (filterResults.length === 0) {
-    filterResults = currentResults.slice();
-  }
-  return filterResults;
-}
-
-
-
 //Create HTML templates for displaying results
 const renderHTML = (results) => {
   let templateArr = [];
