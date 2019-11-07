@@ -285,7 +285,7 @@ const toggleDetailView = (card) => {
   let otherCards = document.querySelectorAll('.card:not(.detail-on)');
   console.log(otherCards);
   otherCards.forEach(otherCard => otherCard.style.display = 'none');
-
+  document.querySelector('.card.detail-on').style.display = 'flex';
 }
 
 document.querySelector('.cards').addEventListener('click', function(e) {
