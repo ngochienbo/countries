@@ -295,6 +295,8 @@ document.querySelector('.cards').addEventListener('click', function(e) {
   let target = e.target;
   if (target.matches('.flag')) {
     let card = target.closest('.card');
+    let index = historyStack.push();  
+    card.dataset.history = index;
     toggleDetailView(card);
     // console.log(card);
   }
