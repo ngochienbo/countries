@@ -77,17 +77,17 @@ const countryCodes = {};
 let currentResults = [];
 
 const fetchData = (searchStr, searchType) => {
-  let queryType, queryStr;
+  let queryType, queryStr, fullNameFilter = '';
   if (searchType === 'partial') {
     queryType = 'name/';
   } else if (searchType === 'full') {
-    queryType = `name/${searchStr}?fullText=true`;
-    searchStr = '';
+    queryType = `name/`;
+    fullNameFilter = '&fullText=true';
   } else if (searchStr === '' || searchStr === undefined) {
     queryType = 'all';
     searchStr = '';
   }
-  queryStr = APIRoot + queryType + searchStr + filterString;
+  queryStr = APIRoot + queryType + searchStr + filterString + fullNameFilter;
 
   return fetch(queryStr)
   .then(response => {
