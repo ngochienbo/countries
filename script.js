@@ -151,7 +151,7 @@ const populateDisplay = (cardsStr) => {
 }
 
 //Create HTML templates for displaying results
-const renderHTML = (results) => {
+const renderHTML = (results, historyIndex) => {
   let templateArr = [];
   for (let i = 0; i < results.length; i++) {
     let country = results[i];
@@ -161,6 +161,12 @@ const renderHTML = (results) => {
     let languagesStr = '';
     let bordersArr =[];
     let bordersStr ='';
+    let historyIndexStr;
+    if (historyIndex === undefined) {
+      historyIndexStr = '';
+    } else {
+      historyIndexStr = ` data-history="${historyIndex}"`;
+    }
 
     // Map loops through the array (currencies, languages, borders),
     // returns all items and join them into a string delimited by ', '
@@ -171,7 +177,7 @@ const renderHTML = (results) => {
     bordersStr = bordersArr.map(border => {return `<button class="country">${border}</button>
             `}).join('');
 
-    let template =`<section class="card" data-region="${results[i].region}">
+    let template =`<section class="card"${historyIndexStr} data-region="${results[i].region}">
       <img class="flag" src="${results[i].flag}">
       <div class="info">
         <header class="name">
@@ -258,22 +264,30 @@ window.addEventListener('load', function() {
 
     document.querySelector('.cards').addEventListener('click', displayNextBorderCountry);
   })
+  .catch(error => {
+    console.log(error);
+  });
 
 
 })
 
 const displayNextBorderCountry = (borderCountry) => {
   let target = borderCountry.target;
-  let newCard = document.querySelector('.cards').lastChild;
   if (target.matches('button.country')) {
     let searchStr = target.innerHTML;
     fetchData(searchStr, 'full')
     .then(country => {
-      populateDisplay(renderHTML(country));
-      newCard.classList.add('detail-on');
       let index = historyStack.push();
+      populateDisplay(renderHTML(country, index));
+      
+      let newCard = document.querySelector(`.card[data-history="${index}"]`);
+      console.log(newCard);
       newCard.dataset.history =  index;
+      newCard.classList.add('detail-on');
       document.querySelector(`.card[data-history="${index - 1}"]`).style.display = 'none';
+    })
+    .catch(error => {
+      console.log(error);
     })
   }
 }
@@ -383,5 +397,26 @@ document.addEventListener('keypress', function(e) {
       populateDisplay(renderHTML(currentResults));
       applyFilterToDisplay();
     })
+    .catch(error => {
+      console.log(error);
+    });
+    searchbar.value = '';
   }
+})
+
+
+//Back button
+
+document.querySelector('.back-history').addEventListener('click', function() {
+  let index = historyStack.pop();
+  let currentCard = document.querySelector(`.card[data-history="${index}"]`);
+  let prevCard = document.querySelector(`.card[data-history="${index - 1}"]`);
+  if (index === 0) {
+    toggleDetailView(currentCard);
+    currentCard.removeAttribute('data-history');
+    applyFilterToDisplay();
+  } else if (index > 0) {
+    currentCard.remove();
+    prevCard.style.display ='';
+  }  
 })
