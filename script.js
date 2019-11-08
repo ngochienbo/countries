@@ -295,34 +295,48 @@ const applyFilterToDisplay = () => {
 
       // If the display option for this region is on then show cards
       if (currentFilters[region]) {
-        regionCards.forEach((card) => card.style.display = 'block');
+        regionCards.forEach((card) => card.style.display = '');
       }
     });
   // Else no filters are on so display all the cards
   } else {
-    cards.forEach(card => card.style.display = 'block'); //Setting display to initial causes buggy behavior
+    cards.forEach(card => card.style.display = ''); //Setting display to initial causes buggy behavior
   }
 }
 
 // Toggle detail view for selected card, while hiding all others
+// Also toggle some UI elements accordingly
 const toggleDetailView = (card) => {
   card.classList.toggle('detail-on');
 
-  // Find all other cards and turn their display off
   let otherCards = document.querySelectorAll('.card:not(.detail-on)');
-  console.log(otherCards);
-  otherCards.forEach(otherCard => otherCard.style.display = 'none');
-  document.querySelector('.card.detail-on').style.display = 'flex';
+  let newDisplayType = '';
+
+  // If after toggling, the card is in detail view then hide other cards
+  if (card.classList.contains('detail-on')) {
+    newDisplayType = 'none';
+  // Else we are turning off detail view for chosen card so redisplay other cards
+  } else {
+    newDisplayType = '';
+  }
+
+  otherCards.forEach(otherCard => otherCard.style.display = newDisplayType);
 }
 
+// Toggle detail view on from main search result screen
 document.querySelector('.cards').addEventListener('click', function(e) {
   let target = e.target;
   if (target.matches('.flag')) {
     let card = target.closest('.card');
-    let index = historyStack.push();  
-    card.dataset.history = index;
-    toggleDetailView(card);
-    // console.log(card);
+
+    // Toggle detail view only if not already in detail mode
+    // This only allows toggling it on from this event listener, toggling it off
+    // is performed through the back button.
+    if (!card.classList.contains('detail-on')) {
+      let index = historyStack.push();  
+      card.dataset.history = index;
+      toggleDetailView(card);
+    }
   }
 });
 
