@@ -323,18 +323,28 @@ const applyFilterToDisplay = () => {
 const toggleDetailView = (card) => {
   card.classList.toggle('detail-on');
 
+  let searchBar = document.querySelector('.searchbar');
+  let backButton = document.querySelector('.back-button');
   let otherCards = document.querySelectorAll('.card:not(.detail-on)');
   let newDisplayType = '';
 
-  // If after toggling, the card is in detail view then hide other cards
+  // If after toggling, the card is in detail view then hide other cards and searchbar
+  // and show back button
   if (card.classList.contains('detail-on')) {
     newDisplayType = 'none';
-  // Else we are turning off detail view for chosen card so redisplay other cards
+    searchBar.style.display = 'none';
+    backButton.style.display = 'block';
+  // Else we are turning off detail view for chosen card so redisplay other cards and searchbar
+  // and hide back button
   } else {
     newDisplayType = '';
+    searchBar.style.display = '';
+    backButton.style.display = ''; // Initial display is none
   }
 
+  // The actual hiding/redisplaying of other cards
   otherCards.forEach(otherCard => otherCard.style.display = newDisplayType);
+
 }
 
 // Toggle detail view on from main search result screen
