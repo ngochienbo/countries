@@ -193,7 +193,7 @@ const renderHTML = (results, historyIndex) => {
           <div class="pop">
             <p>
               Population:
-              <span>${results[i].population}</span>
+              <span>${Number(results[i].population).toLocaleString()}</span>
             </p>
           </div>
           <div class="reg">
@@ -281,7 +281,6 @@ const displayNextBorderCountry = (borderCountry) => {
       populateDisplay(renderHTML(country, index));
       
       let newCard = document.querySelector(`.card[data-history="${index}"]`);
-      console.log(newCard);
       newCard.dataset.history =  index;
       newCard.classList.add('detail-on');
       document.querySelector(`.card[data-history="${index - 1}"]`).style.display = 'none';
@@ -374,7 +373,6 @@ document.addEventListener('click', function(e) {
   else {
     document.querySelector('.dropdown-menu').classList.remove('show-filters');
   }
-  console.log(e.target);
 })
 
 
@@ -382,7 +380,6 @@ document.addEventListener('click', function(e) {
 document.querySelector('.dropdown-menu-options').addEventListener('click', function(e) {
   let targetFilter = e.target;
   let region = targetFilter.dataset.region;
-  console.log(targetFilter);
   if (region) {
     targetFilter.classList.toggle('filter-on');
     if (targetFilter.classList.contains('filter-on')) {
