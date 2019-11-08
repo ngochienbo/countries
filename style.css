@@ -143,10 +143,12 @@ Main page - Searchbar and dropdown menu
 }
 
 .searchbar input[type="text"] {
+  padding-left: 1em;
   width: 100%;
   height: 48px;
   position: absolute;
   margin-bottom: 5px;
+  border: none;
 }
 
 .searchbar input[type="text"]:disabled {
@@ -317,7 +319,7 @@ Main page - Card section
 .card {
   width: 265px;
   height: 340px;
-  margin: 0 auto;
+  margin: 0 auto 3em;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 2px 5px 2px hsla(0, 0%, 0%, 0.05);
@@ -326,6 +328,7 @@ Main page - Card section
 .flag {
   width: 100%;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .card .info {
@@ -370,6 +373,7 @@ Detail View
 /* Activated when a country card is clicked */
 
 .card.detail-on {
+  margin-top: 4em;
   padding: 1.5em;
   width: 100%;
   max-width: 500px;
@@ -385,6 +389,7 @@ Detail View
 .card.detail-on .flag {
   height: auto;
   max-width: 500px;
+  cursor: auto;
 }
 
 .card.detail-on .info {
@@ -411,7 +416,7 @@ Detail View
 }
 
 .card.detail-on .country {
-  margin-right: 0.3em;
+  margin: 0 0.3em 0.5em 0;
   padding: 0.5em 1.5em;
   min-width: 8em;
   border: none;
@@ -419,13 +424,21 @@ Detail View
   font-size: 0.9em;
   background: #fff;
   box-shadow: 0 2px 5px 2px hsla(0, 0%, 0%, 0.05);
+  cursor: pointer;
+  transition: transform 0.05s;
+  /* -webkit-font-smoothing: subpixel-antialiased; */
+}
+
+.card.detail-on .country:hover {
+  transform: scale(1.03);
 }
 
 @media (min-width: 376px) {
   .card.detail-on {
     display: flex;
-    padding: 0 3em 0 6em;
-    max-width: 1440px;
+    margin-top: 12em;
+    padding: 0;
+    max-width: none;
     justify-content: space-between;
     align-items: center;
   }
