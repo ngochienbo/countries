@@ -274,6 +274,37 @@ Main page - Searchbar and dropdown menu
 }
 
 /*********************************
+Back button
+*********************************/
+
+.back-button {
+  display: none;
+  position: absolute;
+  top: 8em;
+  left: 5.5%;
+}
+
+.back-history {
+  padding: 1em 3em;
+  background: #fff;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 5px 2px hsla(0, 0%, 0%, 0.18);
+  color: hsl(200, 15%, 8%);
+  transition: transform 0.05s;
+}
+
+.back-history:hover {
+  transform: scale(1.03);
+}
+
+@media (min-width: 376px) {
+  .back-button {
+    top: 10em;
+  }
+}
+
+/*********************************
 Main page - Card section 
 *********************************/
 
