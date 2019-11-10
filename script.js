@@ -258,7 +258,13 @@ window.addEventListener('load', function() {
     countries.forEach(count => countryCodes[count.alpha3Code] = count.name);
     let randomNum = 8;
     for (let i = 0; i < randomNum; i++) {
-      currentResults.push(countries[Math.round(Math.random() * 250)]);
+      let temp = [];
+      let num = Math.round(Math.random() * 250);
+      while (temp.includes(num)) {
+        num = Math.round(Math.random() * 250);
+      }
+      currentResults.push(countries[num]);
+      temp.push(num);
     }
     populateDisplay(renderHTML(currentResults));
 
