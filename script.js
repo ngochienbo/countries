@@ -257,11 +257,11 @@ window.addEventListener('load', function() {
   .then(countries => {
     countries.forEach(count => countryCodes[count.alpha3Code] = count.name);
     let randomNum = 8;
+    let temp = [];
     for (let i = 0; i < randomNum; i++) {
-      let temp = [];
-      let num = Math.round(Math.random() * 250);
-      while (temp.includes(num)) {
-        num = Math.round(Math.random() * 250);
+      let num;
+      while (temp.includes(num) || num == undefined) {
+        num = Math.floor(Math.random() * 250);
       }
       currentResults.push(countries[num]);
       temp.push(num);
