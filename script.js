@@ -193,7 +193,7 @@ const renderHTML = (results, historyIndex) => {
           <div class="pop">
             <p>
               Population:
-              <span>${results[i].population}</span>
+              <span>${Number(results[i].population).toLocaleString()}</span>
             </p>
           </div>
           <div class="reg">
@@ -281,7 +281,6 @@ const displayNextBorderCountry = (borderCountry) => {
       populateDisplay(renderHTML(country, index));
       
       let newCard = document.querySelector(`.card[data-history="${index}"]`);
-      console.log(newCard);
       newCard.dataset.history =  index;
       newCard.classList.add('detail-on');
       document.querySelector(`.card[data-history="${index - 1}"]`).style.display = 'none';
@@ -323,18 +322,28 @@ const applyFilterToDisplay = () => {
 const toggleDetailView = (card) => {
   card.classList.toggle('detail-on');
 
+  let searchBar = document.querySelector('.searchbar');
+  let backButton = document.querySelector('.back-button');
   let otherCards = document.querySelectorAll('.card:not(.detail-on)');
   let newDisplayType = '';
 
-  // If after toggling, the card is in detail view then hide other cards
+  // If after toggling, the card is in detail view then hide other cards and searchbar
+  // and show back button
   if (card.classList.contains('detail-on')) {
     newDisplayType = 'none';
-  // Else we are turning off detail view for chosen card so redisplay other cards
+    searchBar.style.display = 'none';
+    backButton.style.display = 'block';
+  // Else we are turning off detail view for chosen card so redisplay other cards and searchbar
+  // and hide back button
   } else {
     newDisplayType = '';
+    searchBar.style.display = '';
+    backButton.style.display = ''; // Initial display is none
   }
 
+  // The actual hiding/redisplaying of other cards
   otherCards.forEach(otherCard => otherCard.style.display = newDisplayType);
+
 }
 
 // Toggle detail view on from main search result screen
@@ -364,7 +373,6 @@ document.addEventListener('click', function(e) {
   else {
     document.querySelector('.dropdown-menu').classList.remove('show-filters');
   }
-  console.log(e.target);
 })
 
 
@@ -372,7 +380,6 @@ document.addEventListener('click', function(e) {
 document.querySelector('.dropdown-menu-options').addEventListener('click', function(e) {
   let targetFilter = e.target;
   let region = targetFilter.dataset.region;
-  console.log(targetFilter);
   if (region) {
     targetFilter.classList.toggle('filter-on');
     if (targetFilter.classList.contains('filter-on')) {
